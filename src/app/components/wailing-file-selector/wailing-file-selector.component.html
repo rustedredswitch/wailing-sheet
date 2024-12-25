@@ -2,9 +2,10 @@
 <mat-dialog-content>
   <div class="file-selector-container">
     <input
-      aria-label="ciao"
+      aria-label="select wailing sheet file"
       type="file"
       class="file-input"
+      accept=".csv"
       (change)="onFileSelected($event)"
       #fileUpload
     />
