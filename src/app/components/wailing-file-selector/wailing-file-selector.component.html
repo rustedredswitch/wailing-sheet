@@ -1,0 +1,30 @@
+<p mat-dialog-title>Upload your wailing sheet</p>
+<mat-dialog-content>
+  <div class="file-selector-container">
+    <input
+      aria-label="ciao"
+      type="file"
+      class="file-input"
+      (change)="onFileSelected($event)"
+      #fileUpload
+    />
+
+    <div class="file-upload">
+      <p>{{ fileName || "No file uploaded yet." }}</p>
+
+      <button
+        mat-mini-fab
+        color="primary"
+        class="upload-btn"
+        (click)="fileUpload.click()"
+      >
+        <mat-icon>attach_file</mat-icon>
+      </button>
+    </div>
+  </div>
+  <pre>{{ fileContent }}</pre>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="path()" cdkFocusInitial>Ok</button>
+</mat-dialog-actions>
