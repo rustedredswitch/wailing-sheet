@@ -47,7 +47,6 @@ export class WailingFileSelectorComponent {
       const file: File = event.target.files[0];
       this.currentFile = file;
       this.fileName = this.currentFile.name;
-      console.log(this.fileName);
       const reader = new FileReader();
       reader.onload = (e) => {
         this.fileContent = reader.result;
