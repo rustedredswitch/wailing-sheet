@@ -16,8 +16,8 @@ import { WailingMessageBrokerService } from '../../services/wailing-message-brok
 
 export interface SheetData {
   data: any[];
-  year: number;
   version: number;
+  year: number;
   initialBalance: number;
 }
 

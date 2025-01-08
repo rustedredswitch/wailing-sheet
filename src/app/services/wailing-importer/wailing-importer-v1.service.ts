@@ -18,16 +18,14 @@ export class WailingImporterV1Service {
           skipEmptyLines: true,
         }).data;
 
+        const metadata: any = parsedData.pop();
+
         const sheetData: SheetData = {
           data: parsedData,
-          year: parsedData[1].Metadata,
-          version: parsedData[0].Metadata,
-          initialBalance: parsedData[2].Metadata,
+          version: metadata.January? metadata.January : 0,
+          year: metadata.February? metadata.February : 0,
+          initialBalance: metadata.March? metadata.March : 0,
         };
-
-        delete sheetData.data[0].Metadata;
-        delete sheetData.data[1].Metadata;
-        delete sheetData.data[2].Metadata;
 
         observer.next(sheetData);
         observer.complete();
