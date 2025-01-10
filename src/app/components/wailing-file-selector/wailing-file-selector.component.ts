@@ -3,7 +3,6 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import {
   MatDialogActions,
-  MatDialogClose,
   MatDialogContent,
   MatDialogRef,
   MatDialogTitle,
@@ -14,8 +13,24 @@ import { MatIconModule } from '@angular/material/icon';
 import { WailingImporterV1Service } from '../../services/wailing-importer/wailing-importer-v1.service';
 import { WailingMessageBrokerService } from '../../services/wailing-message-broker/wailing-message-broker.service';
 
+export interface rowData {
+  Wailing: string;
+  January: number;
+  February: number;
+  March: number;
+  April: number;
+  May: number;
+  June: number;
+  July: number;
+  August: number;
+  September: number;
+  October: number;
+  November: number;
+  December: number;
+}
+
 export interface SheetData {
-  data: any[];
+  data: rowData[];
   version: number;
   year: number;
   initialBalance: number;

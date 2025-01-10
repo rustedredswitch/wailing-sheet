@@ -20,11 +20,17 @@ export class WailingImporterV1Service {
 
         const metadata: any = parsedData.pop();
 
+        parsedData.forEach((row) => {
+          Object.keys(row).forEach((key) => {
+            if (key !== 'Wailing') row[key] = parseFloat(row[key]);
+          });
+        });
+
         const sheetData: SheetData = {
           data: parsedData,
-          version: metadata.January? metadata.January : 0,
-          year: metadata.February? metadata.February : 0,
-          initialBalance: metadata.March? metadata.March : 0,
+          version: metadata.January? parseFloat(metadata.January) : 0,
+          year: metadata.February? parseFloat(metadata.February) : 0,
+          initialBalance: metadata.March? parseFloat(metadata.March) : 0,
         };
 
         observer.next(sheetData);
